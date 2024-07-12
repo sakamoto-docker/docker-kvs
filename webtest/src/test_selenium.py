@@ -17,18 +17,31 @@ APIURL = WEBURL + 'api/v1'
 ##################
 
 def test_get_success_nokey():
+  print("HOGE: A")
   clean_and_add_keys()
+  print("HOGE: B")
   try:
+    print("HOGE: C")
     (driver, elems) = get_driver_elements()
+    print("HOGE: D")
     elems['get-button'].click()
+    print("HOGE: E")
     time.sleep(1)
+    print("HOGE: F")
     test_name = sys._getframe().f_code.co_name
+    print("HOGE: G")
     take_screenshot(driver, test_name)
+    print("HOGE: H")
     assert elems['request-url'].text   == '/api/v1/keys/'
+    print("HOGE: I")
     assert elems['request-body'].text  == ''
+    print("HOGE: J")
     assert elems['response-code'].text == '200'
+    print("HOGE: K")
     rbody = json.loads(elems['response-body'].text)
+    print("HOGE: L")
     assert rbody == {'apple':'red', 'banana':'yellow'}
+    print("HOGE: M")
     driver.quit()
   except:
     driver.quit()
