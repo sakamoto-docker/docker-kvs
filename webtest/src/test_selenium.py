@@ -308,6 +308,8 @@ def test_delete_fail_keynotexist():
 def get_driver_elements():
   options = Options()
   options.add_argument('--headless')
+  print(f'HUBURL => {HUBURL}\n')
+  print(f'WEBURL => {WEBURL}\n')
   driver = webdriver.Remote(
             command_executor=HUBURL,
             desired_capabilities=DesiredCapabilities.CHROME)
